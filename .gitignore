@@ -1,0 +1,29 @@
+## --- Visual Studio & .NET ---
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.sln.docstates
+*.userosscache
+*.dbmdl
+
+## --- Android (Mobil Klasörünüz İçin) ---
+.idea/
+.gradle/
+build/
+*.iml
+local.properties
+.cxx/
+*.apk
+*.aar
+
+## --- Web / Frontend ---
+node_modules/
+.env
+wwwroot/lib/*
+# Not: Eğer kütüphaneleri manuel eklediyseniz lib klasörünü yoksaymayabilirsiniz.
+
+## --- İşletim Sistemi ---
+.DS_Store
+Thumbs.db

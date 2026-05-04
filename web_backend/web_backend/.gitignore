@@ -1,0 +1,6 @@
+﻿# Visual Studio ve .NET
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
