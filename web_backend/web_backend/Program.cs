@@ -1,4 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using web_backend; // AppDbContext'in bulunduðu namespace
+
 var builder = WebApplication.CreateBuilder(args);
+
+// 1. Veritabaný Servisini Kaydet
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
