@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Giriş Yap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="login-page">
+    <div class="login-card">
+        <h1>EcoLink</h1>
+        <p>Kampüs içi akıllı atık & kompost ekosistemi</p>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="error-message">@ViewBag.Error</div>
+        }
+
+        <form method="post" asp-controller="Auth" asp-action="Login">
+            <input type="email" name="email" placeholder="@@cbu.edu.tr e-posta adresiniz" required />
+
+            <input type="password" name="password" placeholder="Şifreniz" required />
+
+            <button type="submit">Giriş Yap</button>
+        </form>
+
+        <small>Demo giriş: admin@cbu.edu.tr / 123456</small>
+    </div>
+</div>
