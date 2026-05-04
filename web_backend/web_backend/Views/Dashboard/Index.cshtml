@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Yönetim Paneli";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="dashboard">
+    <aside class="sidebar">
+        <h2>EcoLink</h2>
+        <p>Yönetim Paneli</p>
+
+        <nav>
+            <a href="#">Genel Bakış</a>
+            <a href="#">Atık Kaydı</a>
+            <a href="#">İstatistikler</a>
+            <a href="#">Kullanıcılar</a>
+            <a href="#">Bölümler</a>
+            <a href="#">Görevler</a>
+            <a href="#">Rozetler</a>
+            <a href="#">Sıralama</a>
+            <a href="#">Raporlar</a>
+        </nav>
+    </aside>
+
+    <section class="content">
+        <div class="hero">
+            <h1>@ViewBag.FacultyName</h1>
+            <p>Daha temiz bir kampüs, daha yaşanabilir bir dünya.</p>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <span>Toplanan Atık</span>
+                <strong>@ViewBag.TotalWaste</strong>
+            </div>
+
+            <div class="card">
+                <span>Aktif Kullanıcı</span>
+                <strong>@ViewBag.ActiveUsers</strong>
+            </div>
+
+            <div class="card">
+                <span>Toplam Puan</span>
+                <strong>@ViewBag.TotalPoints</strong>
+            </div>
+
+            <div class="card">
+                <span>Aktif Kulüp</span>
+                <strong>@ViewBag.ActiveClubs</strong>
+            </div>
+        </div>
+
+        <div class="section-grid">
+            <div class="panel">
+                <h3>Atık Dağılımı</h3>
+                <ul>
+                    <li>Plastik: 1120 kg</li>
+                    <li>Cam: 620 kg</li>
+                    <li>Kağıt: 450 kg</li>
+                    <li>Organik: 260 kg</li>
+                </ul>
+            </div>
+
+            <div class="panel">
+                <h3>Bölümlerimiz</h3>
+                <div class="departments">
+                    <span>Yazılım Mühendisliği</span>
+                    <span>Mekatronik Mühendisliği</span>
+                    <span>Enerji Sistemleri Mühendisliği</span>
+                    <span>Elektrik Mühendisliği</span>
+                    <span>Makine Mühendisliği</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
