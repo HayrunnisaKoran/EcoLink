@@ -1,75 +1,208 @@
 ﻿@{
-    ViewData["Title"] = "Yönetim Paneli";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Dashboard";
 }
 
-<div class="dashboard">
-    <aside class="sidebar">
-        <h2>EcoLink</h2>
-        <p>Yönetim Paneli</p>
+<div class="dashboard-shell">
 
-        <nav>
-            <a href="#">Genel Bakış</a>
-            <a href="#">Atık Kaydı</a>
-            <a href="#">İstatistikler</a>
-            <a href="#">Kullanıcılar</a>
-            <a href="#">Bölümler</a>
-            <a href="#">Görevler</a>
-            <a href="#">Rozetler</a>
-            <a href="#">Sıralama</a>
-            <a href="#">Raporlar</a>
+    <aside class="eco-sidebar">
+        <div class="brand-block">
+            <div class="brand-icon">♻</div>
+            <div>
+                <h2>EcoLink</h2>
+                <p>Akıllı Atık Yönetimi</p>
+            </div>
+        </div>
+
+        <nav class="eco-menu">
+            <a class="active" href="/Dashboard/Index">Ana Panel</a>
+            <a href="/WasteRecord/Index">Atık Kayıtları</a>
+            <a href="/WasteBin/Index">Atık Kutuları</a>
+            <a href="/Ranking/Index">Sıralama</a>
+            <a href="/Reward/Points">Puanlar</a>
+            <a href="/Report/Index">Raporlar</a>
+            <a href="/User/Profile">Profil</a>
         </nav>
+
+        <div class="sidebar-info">
+            <span>Bugünün hedefi</span>
+            <strong>50 kg geri dönüşüm</strong>
+            <p>Kampüs genelinde sürdürülebilir atık yönetimi.</p>
+        </div>
     </aside>
 
-    <section class="content">
-        <div class="hero">
-            <h1>@ViewBag.FacultyName</h1>
-            <p>Daha temiz bir kampüs, daha yaşanabilir bir dünya.</p>
-        </div>
+    <main class="dashboard-content">
 
-        <div class="cards">
-            <div class="card">
-                <span>Toplanan Atık</span>
-                <strong>@ViewBag.TotalWaste</strong>
+        <section class="hero">
+            <div>
+                <span class="eyebrow">CBÜ Sürdürülebilir Kampüs</span>
+                <h1>Hoş geldin, EcoLink paneli hazır.</h1>
+                <p>
+                    Atık kayıtlarını takip et, puan durumunu görüntüle ve kampüs içindeki geri dönüşüm performansını analiz et.
+                </p>
             </div>
 
-            <div class="card">
-                <span>Aktif Kullanıcı</span>
-                <strong>@ViewBag.ActiveUsers</strong>
+            <div class="hero-actions">
+                <a class="primary-action" href="/WasteRecord/Create">Yeni Atık Kaydı</a>
+                <a class="secondary-action" href="/Report/Index">Raporları Gör</a>
+            </div>
+        </section>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <span>Toplam Atık</span>
+                <strong>2.450 kg</strong>
+                <p>Bu ay kaydedilen toplam atık miktarı</p>
             </div>
 
-            <div class="card">
+            <div class="stat-card">
+                <span>Geri Dönüşüm Oranı</span>
+                <strong>%76</strong>
+                <p>Ayrıştırılan atıkların başarı oranı</p>
+            </div>
+
+            <div class="stat-card">
                 <span>Toplam Puan</span>
-                <strong>@ViewBag.TotalPoints</strong>
+                <strong>18.240</strong>
+                <p>Kullanıcıların kazandığı toplam puan</p>
             </div>
 
-            <div class="card">
-                <span>Aktif Kulüp</span>
-                <strong>@ViewBag.ActiveClubs</strong>
+            <div class="stat-card">
+                <span>Aktif Kutu</span>
+                <strong>32</strong>
+                <p>Kampüste aktif kullanılan atık kutusu</p>
             </div>
-        </div>
+        </section>
 
-        <div class="section-grid">
-            <div class="panel">
-                <h3>Atık Dağılımı</h3>
-                <ul>
-                    <li>Plastik: 1120 kg</li>
-                    <li>Cam: 620 kg</li>
-                    <li>Kağıt: 450 kg</li>
-                    <li>Organik: 260 kg</li>
-                </ul>
-            </div>
+        <section class="dashboard-grid">
 
             <div class="panel">
-                <h3>Bölümlerimiz</h3>
+                <div class="panel-header">
+                    <div>
+                        <h3>Atık Dağılımı</h3>
+                        <p>Kategorilere göre toplam atık miktarı</p>
+                    </div>
+                    <a href="/Report/WasteStatistics">Detay</a>
+                </div>
+
+                <div class="waste-list">
+                    <div class="waste-row">
+                        <div>
+                            <strong>Plastik</strong>
+                            <span>1120 kg</span>
+                        </div>
+                        <div class="progress-bar">
+                            <span style="width: 78%;"></span>
+                        </div>
+                    </div>
+
+                    <div class="waste-row">
+                        <div>
+                            <strong>Cam</strong>
+                            <span>620 kg</span>
+                        </div>
+                        <div class="progress-bar">
+                            <span style="width: 48%;"></span>
+                        </div>
+                    </div>
+
+                    <div class="waste-row">
+                        <div>
+                            <strong>Kağıt</strong>
+                            <span>450 kg</span>
+                        </div>
+                        <div class="progress-bar">
+                            <span style="width: 36%;"></span>
+                        </div>
+                    </div>
+
+                    <div class="waste-row">
+                        <div>
+                            <strong>Organik</strong>
+                            <span>260 kg</span>
+                        </div>
+                        <div class="progress-bar">
+                            <span style="width: 22%;"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h3>Bölümlerimiz</h3>
+                        <p>Projeye dahil olan akademik birimler</p>
+                    </div>
+                    <a href="/Ranking/Departments">Sıralama</a>
+                </div>
+
                 <div class="departments">
                     <span>Yazılım Mühendisliği</span>
                     <span>Mekatronik Mühendisliği</span>
                     <span>Enerji Sistemleri Mühendisliği</span>
-                    <span>Elektrik Mühendisliği</span>
+                    <span>Elektrik Elektronik Mühendisliği</span>
                     <span>Makine Mühendisliği</span>
                 </div>
             </div>
-        </div>
-    </section>
+
+        </section>
+
+        <section class="bottom-grid">
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h3>Son Atık Kayıtları</h3>
+                        <p>Sisteme eklenen son işlemler</p>
+                    </div>
+                    <a href="/WasteRecord/Index">Tümü</a>
+                </div>
+
+                <table class="eco-table">
+                    <thead>
+                        <tr>
+                            <th>Kategori</th>
+                            <th>Bölüm</th>
+                            <th>Miktar</th>
+                            <th>Durum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Plastik</td>
+                            <td>Yazılım Müh.</td>
+                            <td>24 kg</td>
+                            <td><span class="status success">Onaylandı</span></td>
+                        </tr>
+                        <tr>
+                            <td>Kağıt</td>
+                            <td>Makine Müh.</td>
+                            <td>16 kg</td>
+                            <td><span class="status pending">Bekliyor</span></td>
+                        </tr>
+                        <tr>
+                            <td>Cam</td>
+                            <td>Enerji Sistemleri</td>
+                            <td>31 kg</td>
+                            <td><span class="status success">Onaylandı</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="panel quick-panel">
+                <h3>Hızlı İşlemler</h3>
+                <p>Sık kullanılan işlemlere buradan ulaşabilirsin.</p>
+
+                <div class="quick-actions">
+                    <a href="/WasteRecord/Create">Atık Kaydı Ekle</a>
+                    <a href="/WasteBin/Create">Atık Kutusu Ekle</a>
+                    <a href="/Reward/Badges">Rozetleri Gör</a>
+                    <a href="/Report/Tasks">Görev Raporları</a>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
 </div>
