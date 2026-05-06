@@ -1,0 +1,59 @@
+@model IEnumerable<web_backend.Models.WasteBin>
+
+@{
+    ViewData["Title"] = "Atýk Üniteleri";
+}
+
+<h2>Atýk Üniteleri ve Canlý Harita</h2>
+
+<div id="map" style="height: 450px; width: 100%; margin-bottom: 20px; border: 2px solid #28a745; border-radius: 10px;"></div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Atýk Türü</th>
+            <th>Doluluk Oraný</th>
+            <th>Durum</th>
+            <th>Koordinatlar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.WasteBinId</td>
+                <td>@item.WasteType?.TypeName</td>
+                <td>%@item.FillLevelPercent</td>
+                <td>@(item.IsActive ? "Aktif" : "Pasif")</td>
+                <td>@item.Latitude , @item.Longitude</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    // 1. Haritayý MCBÜ Muradiye Kampüsü koordinatlarýna odakla
+    var map = L.map('map').setView([38.612, 27.278], 15);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // 2. yazýlan API'den verileri çek
+    fetch('/api/WasteBin/all')
+        .then(response => response.json())
+        .then(bins => {
+            bins.forEach(bin => {
+                // Her kutu için haritaya bir marker ekle
+                var marker = L.marker([bin.latitude, bin.longitude]).addTo(map);
+                marker.bindPopup(`
+                    <b>${bin.wasteTypeName} Kutusu</b><br>
+                    Doluluk: %${bin.fillLevelPercent}<br>
+                    Durum: ${bin.isActive ? 'Aktif' : 'Pasif'}
+                `);
+            });
+        });
+</script>

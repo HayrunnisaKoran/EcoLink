@@ -6,6 +6,7 @@ namespace web_backend.Models
 
     public class User
     {
+
         [Key]
         public int UserId { get; set; }
 
@@ -35,6 +36,8 @@ namespace web_backend.Models
         public int? DepartmentId { get; set; }
         [ForeignKey("DepartmentId")]
         public virtual Department? Department { get; set; }
+
+        public virtual ICollection<UserBadge> UserBadges { get; set; } = new List<UserBadge>();
 
         public int TrustScore { get; set; } = 100;
         public int TotalPoints { get; set; } = 0;

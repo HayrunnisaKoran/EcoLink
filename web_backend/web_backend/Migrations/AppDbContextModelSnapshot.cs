@@ -44,6 +44,9 @@ namespace web_backend.Migrations
                         .HasMaxLength(80)
                         .HasColumnType("nvarchar(80)");
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -445,7 +448,7 @@ namespace web_backend.Migrations
                         .IsRequired();
 
                     b.HasOne("web_backend.Models.User", "User")
-                        .WithMany()
+                        .WithMany("UserBadges")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -506,6 +509,11 @@ namespace web_backend.Migrations
                     b.Navigation("Departments");
 
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("web_backend.Models.User", b =>
+                {
+                    b.Navigation("UserBadges");
                 });
 #pragma warning restore 612, 618
         }

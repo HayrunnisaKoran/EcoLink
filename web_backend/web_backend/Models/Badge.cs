@@ -15,6 +15,7 @@ namespace web_backend.Models
         [Required]
         [MaxLength(255)]
         public string Description { get; set; }
+        public string? ImageUrl { get; set; }
 
         public int? RequiredPoints { get; set; }
         public int? RequiredRecordCount { get; set; }

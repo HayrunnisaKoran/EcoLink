@@ -1,0 +1,29 @@
+﻿@model web_backend.Models.RegisterViewModel
+@{
+    ViewData["Title"] = "Kayıt Ol";
+}
+
+<div class="login-page">
+    <div class="login-card">
+        <h1>EcoLink'e Katıl</h1>
+        <p>Sürdürülebilir bir kampüs için ilk adımı at.</p>
+
+        <form method="post" asp-controller="Auth" asp-action="Register">
+            <div asp-validation-summary="All" class="error-message"></div>
+
+            <input asp-for="FirstName" placeholder="Adınız" required />
+            <input asp-for="LastName" placeholder="Soyadınız" required />
+
+            <input asp-for="Email" type="email" placeholder="@@cbu.edu.tr e-posta adresiniz" required />
+
+            <input asp-for="Password" type="password" placeholder="Şifreniz" required />
+            <input asp-for="ConfirmPassword" type="password" placeholder="Şifre Tekrar" required />
+
+            <button type="submit">Kayıt Ol</button>
+        </form>
+
+        <div class="auth-footer">
+            <span>Zaten hesabın var mı? <a href="/Auth/Login">Giriş Yap</a></span>
+        </div>
+    </div>
+</div>

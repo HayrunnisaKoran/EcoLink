@@ -1,4 +1,6 @@
-﻿@{
+﻿@model web_backend.Models.RegisterViewModel
+
+@{
     ViewData["Title"] = "Giriş Yap";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -20,6 +22,10 @@
 
             <button type="submit">Giriş Yap</button>
         </form>
+
+        <div class="auth-footer" style="margin-top: 15px; font-size: 0.9em;">
+            <span>Henüz hesabın yok mu? <a href="/Auth/Register">Kayıt Ol</a></span>
+        </div>
 
         <small>Demo giriş: admin@cbu.edu.tr / 123456</small>
     </div>

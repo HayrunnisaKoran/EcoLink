@@ -22,6 +22,11 @@ namespace web_backend.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Register()
+        {
+            return View();
+        }
         public IActionResult Logout()
         {
             return RedirectToAction("Login", "Auth");

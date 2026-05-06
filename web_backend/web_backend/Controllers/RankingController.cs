@@ -1,22 +1,31 @@
 using Microsoft.AspNetCore.Mvc;
+using web_backend.Services;
 
 namespace web_backend.Controllers
 {
-    public class RankingController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class RankingController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly IRankingService _rankingService;
+
+        public RankingController(IRankingService rankingService)
         {
-            return View();
+            _rankingService = rankingService;
         }
 
-        public IActionResult Faculties()
+        [HttpGet("users")]
+        public async Task<IActionResult> GetUserRankings()
         {
-            return View();
+            var rankings = await _rankingService.GetTopUsersAsync();
+            return Ok(rankings);
         }
 
-        public IActionResult Departments()
+        [HttpGet("faculties")]
+        public async Task<IActionResult> GetFacultyRankings()
         {
-            return View();
+            var rankings = await _rankingService.GetFacultyRankingsAsync();
+            return Ok(rankings);
         }
     }
 }
