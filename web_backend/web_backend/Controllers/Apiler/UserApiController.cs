@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using web_backend.Models;
 using web_backend.Services;
 
-namespace web_backend.Controllers
+namespace web_backend.Controllers.Apiler
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -37,7 +37,7 @@ namespace web_backend.Controllers
             return Ok(new
             {
                 fullName = $"{user.FirstName} {user.LastName}",
-                level = (user.TotalPoints / 500) + 1, // Her 500 puanda bir seviye
+                level = user.TotalPoints / 500 + 1, // Her 500 puanda bir seviye
                 currentBadge = user.UserBadges.OrderByDescending(b => b.EarnedAt).FirstOrDefault()?.Badge?.BadgeName ?? "Yeni Çevreci",
                 co2Saved = (totalWasteWeight * 2.5).ToString("N1") + " kg CO2",
                 treeCount = Math.Floor(totalWasteWeight / 20) + " Ağaç",

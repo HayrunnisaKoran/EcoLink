@@ -39,5 +39,9 @@ namespace web_backend.Models
 
         public int EarnedPoints { get; set; } = 0;
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+        // enlem,Boylam bilgisi
+        public decimal? Latitude { get; set; }
+        public decimal? Longitude { get; set; }
     }
 }

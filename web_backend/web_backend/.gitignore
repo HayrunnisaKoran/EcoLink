@@ -7,3 +7,11 @@
 
 appsettings.Development.json
 appsettings.json
+
+# Kullanıcı tarafından yüklenen dinamik dosyalar (Fotoğraflar vb.)
+wwwroot/uploads/
+wwwroot/images/
+
+# İşletim sistemi ve log artıkları
+.DS_Store
+*.log

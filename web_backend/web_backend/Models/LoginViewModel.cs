@@ -10,6 +10,6 @@ namespace web_backend.Models
 
         [Required(ErrorMessage = "Şifre zorunludur.")]
         [DataType(DataType.Password)]
-        public string PasswordHash { get; set; }
+        public string Password { get; set; }
     }
 }
