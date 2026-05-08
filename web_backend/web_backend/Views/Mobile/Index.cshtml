@@ -1,0 +1,120 @@
+﻿@{
+    Layout = "~/Views/Shared/_MobileLayout.cshtml";
+    ViewData["Title"] = "EcoLink Mobil";
+}
+
+<header class="mobile-top">
+    <div class="brand">
+        <div class="logo">♻</div>
+        <div>
+            <h1>EcoLink</h1>
+            <p>Sürdürülebilir Kampüs</p>
+        </div>
+    </div>
+
+    <a href="/Mobile/Profile" class="avatar">A</a>
+</header>
+
+<section class="hero">
+    <p class="hero-kicker">Merhaba Ayşe 👋</p>
+    <h2>Bugün doğaya katkı sağla</h2>
+
+    <div class="hero-stats">
+        <div class="hero-stat">
+            <span>Toplam EcoPoint</span>
+            <strong>1.250</strong>
+        </div>
+
+        <div class="hero-stat">
+            <span>Seviye</span>
+            <strong>Yeşil 3</strong>
+        </div>
+    </div>
+</section>
+
+<div class="section-title">
+    <h3>Hızlı İşlemler</h3>
+</div>
+
+<section class="quick-grid">
+    <a href="/Mobile/Scan?binCode=KUTU-1023" class="quick-card">
+        <div class="quick-icon">📷</div>
+        <h4>QR ile Atık At</h4>
+        <p>Kutuyu tara, doğrula, puan kazan.</p>
+    </a>
+
+    <a href="/Mobile/Scan?binCode=KOMPOST-01" class="quick-card">
+        <div class="quick-icon">🌱</div>
+        <h4>Kompost Katkısı</h4>
+        <p>Organik atığı döngüye kazandır.</p>
+    </a>
+
+    <a href="/Mobile/Leaderboard" class="quick-card">
+        <div class="quick-icon">🏆</div>
+        <h4>Yeşil Lig</h4>
+        <p>Fakülte sıralamasını görüntüle.</p>
+    </a>
+
+    <a href="/Mobile/Rewards" class="quick-card">
+        <div class="quick-icon">🎁</div>
+        <h4>Ödüller</h4>
+        <p>Rozetleri ve hedefleri incele.</p>
+    </a>
+</section>
+
+<div class="section-title">
+    <h3>Son İşlemler</h3>
+    <a href="#">Tümü</a>
+</div>
+
+<section class="list">
+    <div class="list-item">
+        <div class="list-icon">🟡</div>
+        <div>
+            <h4>Plastik Atık</h4>
+            <p>KUTU-1023 • Bugün</p>
+        </div>
+        <strong class="point">+25</strong>
+    </div>
+
+    <div class="list-item">
+        <div class="list-icon">🌱</div>
+        <div>
+            <h4>Kompost Katkısı</h4>
+            <p>KOMPOST-01 • Dün</p>
+        </div>
+        <strong class="point">+40</strong>
+    </div>
+
+    <div class="list-item">
+        <div class="list-icon">📄</div>
+        <div>
+            <h4>Kağıt Atık</h4>
+            <p>KUTU-1007 • 2 gün önce</p>
+        </div>
+        <strong class="point">+15</strong>
+    </div>
+</section>
+
+<nav class="bottom-nav">
+    <a href="/Mobile" class="active">
+        <span>🏠</span>
+        Ana
+    </a>
+    <a href="/Mobile/Scan">
+        <span>📷</span>
+        Tara
+    </a>
+    <a href="/Mobile/Leaderboard">
+        <span>🏆</span>
+        Lig
+    </a>
+    <a href="/Mobile/Rewards">
+        <span>🎁</span>
+        Ödül
+    </a>
+    <a href="/Mobile/Profile">
+        <span>👤</span>
+        Profil
+    </a>
+</nav>
