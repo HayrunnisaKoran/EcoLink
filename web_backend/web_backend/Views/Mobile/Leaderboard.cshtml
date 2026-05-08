@@ -1,0 +1,96 @@
+﻿@{
+    Layout = "~/Views/Shared/_MobileLayout.cshtml";
+    ViewData["Title"] = "Yeşil Lig";
+}
+
+<header class="mobile-top">
+    <div class="brand">
+        <a href="/Mobile" class="logo back">←</a>
+        <div>
+            <h1>Yeşil Lig</h1>
+            <p>Kampüs sıralaması</p>
+        </div>
+    </div>
+</header>
+
+<section class="hero leader-card">
+    <p class="hero-kicker">Bu haftanın lideri</p>
+    <h2>Hasan Ferdi Turgutlu Teknoloji Fakültesi</h2>
+
+    <div class="hero-stats">
+        <div class="hero-stat">
+            <span>Toplam Puan</span>
+            <strong>8.420</strong>
+        </div>
+
+        <div class="hero-stat">
+            <span>Katılımcı</span>
+            <strong>126</strong>
+        </div>
+    </div>
+</section>
+
+<div class="section-title">
+    <h3>Fakülte Sıralaması</h3>
+</div>
+
+<section class="list">
+    <div class="list-item">
+        <div class="rank-number">1</div>
+        <div>
+            <h4>Teknoloji Fakültesi</h4>
+            <p>126 kullanıcı • 420 işlem</p>
+        </div>
+        <strong class="point">8420</strong>
+    </div>
+
+    <div class="list-item">
+        <div class="rank-number">2</div>
+        <div>
+            <h4>Mühendislik Fakültesi</h4>
+            <p>98 kullanıcı • 365 işlem</p>
+        </div>
+        <strong class="point">7310</strong>
+    </div>
+
+    <div class="list-item">
+        <div class="rank-number">3</div>
+        <div>
+            <h4>İktisadi ve İdari Bilimler</h4>
+            <p>74 kullanıcı • 290 işlem</p>
+        </div>
+        <strong class="point">6120</strong>
+    </div>
+
+    <div class="list-item">
+        <div class="rank-number">4</div>
+        <div>
+            <h4>Fen Edebiyat Fakültesi</h4>
+            <p>61 kullanıcı • 214 işlem</p>
+        </div>
+        <strong class="point">4980</strong>
+    </div>
+</section>
+
+<nav class="bottom-nav">
+    <a href="/Mobile">
+        <span>🏠</span>
+        Ana
+    </a>
+    <a href="/Mobile/Scan">
+        <span>📷</span>
+        Tara
+    </a>
+    <a href="/Mobile/Leaderboard" class="active">
+        <span>🏆</span>
+        Lig
+    </a>
+    <a href="/Mobile/Rewards">
+        <span>🎁</span>
+        Ödül
+    </a>
+    <a href="/Mobile/Profile">
+        <span>👤</span>
+        Profil
+    </a>
+</nav>
