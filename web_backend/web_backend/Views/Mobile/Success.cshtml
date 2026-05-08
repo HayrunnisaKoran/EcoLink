@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "~/Views/Shared/_MobileLayout.cshtml";
+    ViewData["Title"] = "Doğrulama Başarılı";
+
+    var binCode = TempData["BinCode"] as string ?? "KUTU-1023";
+    var wasteType = TempData["WasteType"] as string ?? "Plastik";
+    var amount = TempData["Amount"] as string ?? "1";
+    var point = TempData["EarnedPoint"] as string ?? "25";
+}
+
+<section class="success-wrap">
+    <div>
+        <div class="success-check">✓</div>
+
+        <h1>Doğrulama Başarılı!</h1>
+
+        <p>
+            @binCode kutusuna @amount kg @wasteType atığı kaydedildi.
+            Doğru ayrıştırma davranışın EcoPoint ile ödüllendirildi.
+        </p>
+
+        <div class="reward-box">
+            +@point EcoPoint kazandın 🌿
+        </div>
+
+        <a href="/Mobile" class="primary-btn">Ana Sayfaya Dön</a>
+        <br />
+        <br />
+        <a href="/Mobile/Leaderboard" class="secondary-btn">Yeşil Ligi Gör</a>
+    </div>
+</section>
