@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="Ana Sayfa" />
+    <item
+        android:id="@+id/nav_camera"
+        android:icon="@drawable/ic_recycle"
+        android:title="Kayıt" />
+    <item
+        android:id="@+id/nav_stats"
+        android:icon="@drawable/ic_chart"
+        android:title="Sıralama" />
+    <item
+        android:id="@+id/nav_rewards"
+        android:icon="@drawable/ic_rewards"
+        android:title="Ödüller" />
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_profil"
+        android:title="Profil" />
+</menu>

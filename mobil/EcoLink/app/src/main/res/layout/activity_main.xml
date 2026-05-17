@@ -1,19 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F8FAF8"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="24dp">
+
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+                    <TextView android:id="@+id/tvGreeting" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Merhaba" android:textSize="22sp" android:textStyle="bold" android:textColor="#1A1A1A"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Doğaya katkın için harika iş çıkarıyorsun!" android:textSize="13sp" android:textColor="#757575"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="24dp"
+                app:cardBackgroundColor="#2D5A27"
+                app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Toplam Puanın" android:textColor="#C8E6C9" android:textSize="14sp"/>
+                    <TextView android:id="@+id/tvPoints" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="#FFFFFF" android:textSize="40sp" android:textStyle="bold"/>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="16dp">
+                        <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Atık Kaydı" android:textColor="#A5D6A7" android:textSize="11sp"/>
+                            <TextView android:id="@+id/tvCount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 Kez" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="16sp"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Kurtarılan Ağırlık" android:textColor="#A5D6A7" android:textSize="11sp"/>
+                            <TextView android:id="@+id/tvWeight" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 kg" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="16sp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ekolojik Yolculuğun" android:textStyle="bold" android:textColor="#1A1A1A" android:textSize="16sp" android:layout_marginTop="24dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tvLevelName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Seviye Yükleniyor..."
+                        android:textColor="#2D5A27"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="12dp"/>
+
+                    <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content" android:scrollbars="none">
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+
+                            <ImageView android:layout_width="65dp" android:layout_height="65dp" android:src="@drawable/yesil_damla" android:scaleType="fitCenter" android:alpha="1.0" android:padding="4dp" android:contentDescription="1. Seviye: Yeşil Damla" android:onClick="showLevelToast"/>
+                            <View android:layout_width="15dp" android:layout_height="4dp" android:background="#E0E0E0"/>
+
+                            <ImageView android:layout_width="45dp" android:layout_height="45dp" android:src="@drawable/doga_filizi" android:alpha="0.3" android:scaleType="fitCenter" android:contentDescription="2. Seviye: Doğa Filizi" android:onClick="showLevelToast"/>
+                            <View android:layout_width="15dp" android:layout_height="4dp" android:background="#E0E0E0"/>
+
+                            <ImageView android:layout_width="45dp" android:layout_height="45dp" android:src="@drawable/eko_cirak" android:alpha="0.3" android:scaleType="fitCenter" android:contentDescription="3. Seviye: Eko Çırak" android:onClick="showLevelToast"/>
+                            <View android:layout_width="15dp" android:layout_height="4dp" android:background="#E0E0E0"/>
+
+                            <ImageView android:layout_width="45dp" android:layout_height="45dp" android:src="@drawable/cevre_dostu" android:alpha="0.3" android:scaleType="fitCenter" android:contentDescription="4. Seviye: Çevre Dostu" android:onClick="showLevelToast"/>
+                            <View android:layout_width="15dp" android:layout_height="4dp" android:background="#E0E0E0"/>
+
+                            <ImageView android:layout_width="45dp" android:layout_height="45dp" android:src="@drawable/geri_donusum_elcisi" android:alpha="0.3" android:scaleType="fitCenter" android:contentDescription="5. Seviye: Geri Dönüşüm Elçisi" android:onClick="showLevelToast"/>
+                            <View android:layout_width="15dp" android:layout_height="4dp" android:background="#E0E0E0"/>
+
+                            <ImageView android:layout_width="45dp" android:layout_height="45dp" android:src="@drawable/bilincli_tuketici" android:alpha="0.3" android:scaleType="fitCenter" android:contentDescription="6. Seviye: Bilinçli Tüketici" android:onClick="showLevelToast"/>
+                            <View android:layout_width="15dp" android:layout_height="4dp" android:background="#E0E0E0"/>
+
+                            <ImageView android:layout_width="45dp" android:layout_height="45dp" android:src="@drawable/kompost_kahramani" android:alpha="0.3" android:scaleType="fitCenter" android:contentDescription="7. Seviye: Kompost Kahramanı" android:onClick="showLevelToast"/>
+                            <View android:layout_width="15dp" android:layout_height="4dp" android:background="#E0E0E0"/>
+
+                            <ImageView android:layout_width="45dp" android:layout_height="45dp" android:src="@drawable/kampus_lideri" android:alpha="0.3" android:scaleType="fitCenter" android:contentDescription="8. Seviye: Kampüs Lideri" android:onClick="showLevelToast"/>
+                            <View android:layout_width="15dp" android:layout_height="4dp" android:background="#E0E0E0"/>
+
+                            <ImageView android:layout_width="45dp" android:layout_height="45dp" android:src="@drawable/sifir_atik_lideri" android:alpha="0.3" android:scaleType="fitCenter" android:contentDescription="9. Seviye: Sıfır Atık Lideri" android:onClick="showLevelToast"/>
+                            <View android:layout_width="15dp" android:layout_height="4dp" android:background="#E0E0E0"/>
+
+                            <ImageView android:layout_width="45dp" android:layout_height="45dp" android:src="@drawable/doga_muhafizi" android:alpha="0.3" android:scaleType="fitCenter" android:contentDescription="10. Seviye: Doğa Muhafızı" android:onClick="showLevelToast"/>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Özel Başarı Rozetleri" android:textStyle="bold" android:textColor="#1A1A1A" android:textSize="16sp" android:layout_marginTop="24dp"/>
+            <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:scrollbars="none">
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
+
+                    <LinearLayout android:layout_width="95dp" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_marginEnd="12dp">
+                        <ImageView android:layout_width="60dp" android:layout_height="60dp" android:src="@drawable/orman_kurtaricisi" android:scaleType="fitCenter" android:contentDescription="Orman Kurtarıcısı" android:onClick="showLevelToast"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Orman\nKurtarıcısı" android:textSize="11sp" android:textAlignment="center" android:layout_marginTop="8dp" android:textStyle="bold" android:textColor="#1A1A1A"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="95dp" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_marginEnd="12dp" android:alpha="0.3">
+                        <ImageView android:layout_width="60dp" android:layout_height="60dp" android:src="@drawable/kristal_koruyucu" android:scaleType="fitCenter" android:contentDescription="Kristal Koruyucu" android:onClick="showLevelToast"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Kristal\nKoruyucu" android:textSize="11sp" android:textAlignment="center" android:layout_marginTop="8dp" android:textStyle="bold" android:textColor="#1A1A1A"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="95dp" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_marginEnd="12dp" android:alpha="0.3">
+                        <ImageView android:layout_width="60dp" android:layout_height="60dp" android:src="@drawable/denizlerin_savunucusu" android:scaleType="fitCenter" android:contentDescription="Denizlerin Savunucusu" android:onClick="showLevelToast"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Denizlerin\nSavunucusu" android:textSize="11sp" android:textAlignment="center" android:layout_marginTop="8dp" android:textStyle="bold" android:textColor="#1A1A1A"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="95dp" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_marginEnd="12dp" android:alpha="0.3">
+                        <ImageView android:layout_width="60dp" android:layout_height="60dp" android:src="@drawable/toprak_besleyicisi" android:scaleType="fitCenter" android:contentDescription="Toprak Besleyicisi" android:onClick="showLevelToast"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Toprak\nBesleyicisi" android:textSize="11sp" android:textAlignment="center" android:layout_marginTop="8dp" android:textStyle="bold" android:textColor="#1A1A1A"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="95dp" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_marginEnd="12dp" android:alpha="0.3">
+                        <ImageView android:layout_width="60dp" android:layout_height="60dp" android:src="@drawable/enerji_koruyucusu" android:scaleType="fitCenter" android:contentDescription="Enerji Koruyucusu" android:onClick="showLevelToast"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Enerji\nKoruyucusu" android:textSize="11sp" android:textAlignment="center" android:layout_marginTop="8dp" android:textStyle="bold" android:textColor="#1A1A1A"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="95dp" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_marginEnd="12dp" android:alpha="0.3">
+                        <ImageView android:layout_width="60dp" android:layout_height="60dp" android:src="@drawable/istikrarli_cevreci" android:scaleType="fitCenter" android:contentDescription="İstikrarlı Çevreci" android:onClick="showLevelToast"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="İstikrarlı\nÇevreci" android:textSize="11sp" android:textAlignment="center" android:layout_marginTop="8dp" android:textStyle="bold" android:textColor="#1A1A1A"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Günün Kompost Görevleri" android:textStyle="bold" android:textColor="#1A1A1A" android:textSize="16sp" android:layout_marginTop="24dp"/>
+            <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" app:cardCornerRadius="16dp" app:cardBackgroundColor="#FFF8E1" app:cardElevation="1dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                    <CheckBox android:id="@+id/cbTask1" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Bugün 1 adet organik atık at (+50 Puan)" android:textSize="13sp" android:buttonTint="#F57F17"/>
+                    <CheckBox android:id="@+id/cbTask2" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Kuru yaprak (Karbon) desteği sağla (+80 Puan)" android:textSize="13sp" android:buttonTint="#F57F17"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Kampüs Haritası" android:textStyle="bold" android:textColor="#1A1A1A" android:textSize="16sp" android:layout_marginTop="24dp"/>
+            <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" app:cardCornerRadius="16dp" app:cardElevation="2dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="16dp" android:background="#E8F5E9">
+                        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_crosshair" app:tint="#2D5A27" android:contentDescription="Uzaklık"/>
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="12dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Manisa Celal Bayar Üniversitesi" android:textStyle="bold" android:textColor="#1A1A1A"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tüm atık ve kompost noktaları" android:textSize="12sp" android:textColor="#2D5A27" android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btnOpenMap" android:layout_width="match_parent" android:layout_height="54dp" android:layout_margin="16dp" android:text="Haritayı Göster" app:backgroundTint="#417D46" app:cornerRadius="12dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF"
+        app:itemIconSize="20dp"
+        app:itemIconTint="@color/nav_colors"
+        app:itemTextColor="@color/nav_colors"
+        app:itemPaddingBottom="4dp"
+        app:itemPaddingTop="4dp"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:elevation="8dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
