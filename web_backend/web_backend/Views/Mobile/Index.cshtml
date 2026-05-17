@@ -1,120 +1,202 @@
 ﻿@{
     Layout = "~/Views/Shared/_MobileLayout.cshtml";
-    ViewData["Title"] = "EcoLink Mobil";
+    ViewData["Title"] = "EcoLink Demo";
 }
 
-<header class="mobile-top">
-    <div class="brand">
-        <div class="logo">♻</div>
-        <div>
-            <h1>EcoLink</h1>
-            <p>Sürdürülebilir Kampüs</p>
+<div class="landing-wrapper">
+    <section class="hero-section text-center py-4">
+        <div class="container">
+            <div class="badge-tech mb-3">Yapay Zeka & IoT Destekli</div>
+            <h1 class="display-5 fw-bold">EcoLink: <span class="green-gradient-text">Atıktan Değere</span></h1>
+            <p class="lead mx-auto mb-4" style="max-width: 600px;">
+                Kampüs içinde atığı görünür kılan, doğru ayrıştırmayı ödüllendiren akıllı yönetim ekosistemi. 
+            </p>
+
+            <div class="device-showcase">
+                <div class="iphone-mockup">
+                    <div class="iphone-notch"></div>
+
+                    <div class="screen">
+                        <div id="phoneSlider" class="carousel slide h-100" data-bs-ride="carousel">
+
+                            <div class="carousel-indicators custom-indicators">
+                                <button type="button" data-bs-target="#phoneSlider" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#phoneSlider" data-bs-slide-to="1" class="active"></button>
+                                <button type="button" data-bs-target="#phoneSlider" data-bs-slide-to="2" class="active"></button>
+                                <button type="button" data-bs-target="#phoneSlider" data-bs-slide-to="3" class="active"></button>
+                                <button type="button" data-bs-target="#phoneSlider" data-bs-slide-to="4" class="active"></button>
+                                <button type="button" data-bs-target="#phoneSlider" data-bs-slide-to="5" class="active"></button>
+                                <button type="button" data-bs-target="#phoneSlider" data-bs-slide-to="6" class="active"></button>
+                                <button type="button" data-bs-target="#phoneSlider" data-bs-slide-to="7" class="active"></button>
+                                <button type="button" data-bs-target="#phoneSlider" data-bs-slide-to="8"></button>
+                            </div>
+
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active h-100">
+                                    <img src="~/mobil_ekranlar/ecolink_home.jpg" asp-append-version="true" class="app-screenshot" alt="Home">
+                                </div>
+                                <div class="carousel-item h-100">
+                                    <img src="~/mobil_ekranlar/ecolink_kutuQR.jpg" asp-append-version="true" class="app-screenshot" alt="KutuQR">
+                                </div>
+                                <div class="carousel-item h-100">
+                                    <img src="~/mobil_ekranlar/ecolink_konum_hatasi.jpeg" asp-append-version="true" class="app-screenshot" alt="Kamera_Onay">
+                                </div>
+                                <div class="carousel-item h-100">
+                                    <img src="~/mobil_ekranlar/ecolink_kamera_2.jpg" asp-append-version="true" class="app-screenshot" alt="Kamera">
+                                </div>
+                                <div class="carousel-item h-100">
+                                    <img src="~/mobil_ekranlar/ecolink_tur_sec.jpg" asp-append-version="true" class="app-screenshot" alt="Atık_Türü">
+                                </div>
+                                <div class="carousel-item h-100">
+                                    <img src="~/mobil_ekranlar/ecolink_atık_onayi.jpeg" asp-append-version="true" class="app-screenshot" alt="Atık_Onay">
+                                </div>
+                                 <div class="carousel-item h-100">
+                                    <img src="~/mobil_ekranlar/ecolink_oduller.jpg" asp-append-version="true" class="app-screenshot" alt="Ödüller">
+                                </div>
+                                <div class="carousel-item h-100">
+                                    <img src="~/mobil_ekranlar/ecolink_harita.jpg" asp-append-version="true" class="app-screenshot" alt="Harita">
+                                </div>
+                                <div class="carousel-item h-100">
+                                    <img src="~/mobil_ekranlar/ecolink_profil.jpg" asp-append-version="true" class="app-screenshot" alt="Profil">
+                                </div>
+                            </div>
+
+                            <button class="carousel-control-prev custom-control" type="button" data-bs-target="#phoneSlider" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon custom-nav-icon" aria-hidden="true"></span>
+                            </button>
+                            <button class="carousel-control-next custom-control" type="button" data-bs-target="#phoneSlider" data-bs-slide="next">
+                                <span class="carousel-control-next-icon custom-nav-icon" aria-hidden="true"></span>
+                            </button>
+                            <button class="carousel-control-next custom-control" type="button" data-bs-target="#phoneSlider" data-bs-slide="next">
+                                <span class="carousel-control-next-icon custom-nav-icon" aria-hidden="true"></span>
+                            </button>
+                             <button class="carousel-control-next custom-control" type="button" data-bs-target="#phoneSlider" data-bs-slide="next">
+                                <span class="carousel-control-next-icon custom-nav-icon" aria-hidden="true"></span>
+                            </button>
+                            <button class="carousel-control-next custom-control" type="button" data-bs-target="#phoneSlider" data-bs-slide="next">
+                                <span class="carousel-control-next-icon custom-nav-icon" aria-hidden="true"></span>
+                            </button>
+                            <button class="carousel-control-next custom-control" type="button" data-bs-target="#phoneSlider" data-bs-slide="next">
+                                <span class="carousel-control-next-icon custom-nav-icon" aria-hidden="true"></span>
+                            </button>
+                            <button class="carousel-control-next custom-control" type="button" data-bs-target="#phoneSlider" data-bs-slide="next">
+                                <span class="carousel-control-next-icon custom-nav-icon" aria-hidden="true"></span>
+                            </button>
+                            <button class="carousel-control-next custom-control" type="button" data-bs-target="#phoneSlider" data-bs-slide="next">
+                                <span class="carousel-control-next-icon custom-nav-icon" aria-hidden="true"></span>
+                            </button>
+                            <button class="carousel-control-next custom-control" type="button" data-bs-target="#phoneSlider" data-bs-slide="next">
+                                <span class="carousel-control-next-icon custom-nav-icon" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <a href="/Mobile/Profile" class="avatar">A</a>
-</header>
+    <section class="info-grid container my-5">
 
-<section class="hero">
-    <p class="hero-kicker">Merhaba Ayşe 👋</p>
-    <h2>Bugün doğaya katkı sağla</h2>
+        <div class="row g-4">
 
-    <div class="hero-stats">
-        <div class="hero-stat">
-            <span>Toplam EcoPoint</span>
-            <strong>1.250</strong>
+            <div class="col-12 col-md-4">
+
+                <div class="glass-card h-100">
+
+                    <div class="card-icon">🔍</div>
+
+                    <h3>Görünmeyen Kayıp</h3>
+
+                    <p>
+                        Kampüste asıl kayıp atığın oluşması değil; <strong>yanlış ayrıştırma sonucu geri dönüşüm zincirinin kirlenmesidir</strong>
+                        EcoLink, kullanıcıyı sürece dahil ederek atığın nerede ve doğru mu ayrıştırıldığı sorusunu görünür hale getirir
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-12 col-md-4">
+
+                <div class="glass-card">
+                    <span class="card-icon">🏆</span>
+                    <h3>EcoPoint Motivasyonu</h3>
+                    <p>
+                        Üniversite mailiyle dahil olan öğrenciler, doğru ayrıştırdıkları her atık için <strong>EcoPoint ve dijital rozetler</strong> kazanır.
+                        Kazanılan EcoPointlerle kantin ve yemekhanelerde indirim kuponu alabilir; kırtasiyelerde ücretsiz çıktı-defter hakkına ve 
+                        etkinliklerde öncelik ve VIP bilete sahip olabilirsiniz. En güzeli de adınıza TEMA vakfı aracılığıyla <strong>fidan bağışı sertifikanız</strong> olabilir!
+                        Fakülteler arası <strong>"Yeşil Lig"</strong> ile sürdürülebilirlik, katılımcı bir yarışa dönüşür.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="glass-card">
+                <span class="card-icon">🛡️</span>
+                <h3>Siber-Sürdürülebilirlik</h3>
+                <p>
+                    Sistemimiz <strong>"Çok Katmanlı Doğrulama"</strong> ile manipülasyonu engeller
+                    Geofencing (konum sınırı) ve IoT sensör tokalaşması sayesinde her atık kaydı siber saldırılara karşı güvenlik protokolleri altında korunur
+                </p>
+            </div>
+
+            <div class="col-12 col-md-4">
+
+                <div class="glass-card h-100">
+
+                    <div class="card-icon">♻️</div>
+
+                    <h3>İzlenebilir Döngü</h3>
+
+                    <p>QR Kod ve Yapay Zeka ile her atık tanımlanır. "Atık nerede ve doğru mu ayrıştırıldı?" sorusunu şeffaf veriye dönüştürüyoruz.</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-12 col-md-4">
+
+                <div class="glass-card">
+                    <span class="card-icon">💰</span>
+                    <h3>Ekonomik ve Çevresel Etki</h3>
+                    <p>
+                        Düşük maliyetli IoT ve mikro-kompost üniteleri (yaklaşık <strong>3.000 TL bütçe</strong>) ile organik atıkları kampüs toprağı için değerli kaynağa çeviriyoruz.
+                        Peyzaj giderlerinde tasarruf sağlayarak döngüsel ekonomiyi başlatıyoruz.
+                    </p>
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="hero-stat">
-            <span>Seviye</span>
-            <strong>Yeşil 3</strong>
-        </div>
-    </div>
-</section>
+    </section>
 
-<div class="section-title">
-    <h3>Hızlı İşlemler</h3>
+
+
+    <section class="download-section text-center py-5">
+
+        <div class="container glass-card py-5">
+
+            <h2 class="mb-4">Ecosystem'e Katılın</h2>
+
+            <p class="mb-4 text-muted">Saha testlerine katılmak ve EcoPoint toplamaya başlamak için prototip sürümü indirin.</p>
+
+            <a href="/Mobile/DownloadApp" class="btn-download">
+                <span class="icon">🤖</span>
+                <div class="text">
+                    <small>Android Prototip</small>
+                    <strong>APK İndir (Beta)</strong>
+                </div>
+            </a>
+
+            <div class="security-tag mt-4">
+
+                <small><i class="bi bi-shield-lock-fill"></i> Güvenli Dosya: SHA-256 Hash Doğrulandı</small>
+
+            </div>
+
+        </div>
+
+    </section>
+
 </div>
-
-<section class="quick-grid">
-    <a href="/Mobile/Scan?binCode=KUTU-1023" class="quick-card">
-        <div class="quick-icon">📷</div>
-        <h4>QR ile Atık At</h4>
-        <p>Kutuyu tara, doğrula, puan kazan.</p>
-    </a>
-
-    <a href="/Mobile/Scan?binCode=KOMPOST-01" class="quick-card">
-        <div class="quick-icon">🌱</div>
-        <h4>Kompost Katkısı</h4>
-        <p>Organik atığı döngüye kazandır.</p>
-    </a>
-
-    <a href="/Mobile/Leaderboard" class="quick-card">
-        <div class="quick-icon">🏆</div>
-        <h4>Yeşil Lig</h4>
-        <p>Fakülte sıralamasını görüntüle.</p>
-    </a>
-
-    <a href="/Mobile/Rewards" class="quick-card">
-        <div class="quick-icon">🎁</div>
-        <h4>Ödüller</h4>
-        <p>Rozetleri ve hedefleri incele.</p>
-    </a>
-</section>
-
-<div class="section-title">
-    <h3>Son İşlemler</h3>
-    <a href="#">Tümü</a>
-</div>
-
-<section class="list">
-    <div class="list-item">
-        <div class="list-icon">🟡</div>
-        <div>
-            <h4>Plastik Atık</h4>
-            <p>KUTU-1023 • Bugün</p>
-        </div>
-        <strong class="point">+25</strong>
-    </div>
-
-    <div class="list-item">
-        <div class="list-icon">🌱</div>
-        <div>
-            <h4>Kompost Katkısı</h4>
-            <p>KOMPOST-01 • Dün</p>
-        </div>
-        <strong class="point">+40</strong>
-    </div>
-
-    <div class="list-item">
-        <div class="list-icon">📄</div>
-        <div>
-            <h4>Kağıt Atık</h4>
-            <p>KUTU-1007 • 2 gün önce</p>
-        </div>
-        <strong class="point">+15</strong>
-    </div>
-</section>
-
-<nav class="bottom-nav">
-    <a href="/Mobile" class="active">
-        <span>🏠</span>
-        Ana
-    </a>
-    <a href="/Mobile/Scan">
-        <span>📷</span>
-        Tara
-    </a>
-    <a href="/Mobile/Leaderboard">
-        <span>🏆</span>
-        Lig
-    </a>
-    <a href="/Mobile/Rewards">
-        <span>🎁</span>
-        Ödül
-    </a>
-    <a href="/Mobile/Profile">
-        <span>👤</span>
-        Profil
-    </a>
-</nav>

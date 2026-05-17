@@ -2,10 +2,13 @@
 using web_backend.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace web_backend.Controllers.Apiler
 {
-    public class AuthController : Controller
+    [Route("api/[controller]")] // Temel adres: api/Auth
+    [ApiController]
+    public class AuthController : ControllerBase // API olduğu için ControllerBase daha uygundur
     {
         private readonly AppDbContext _context;
         public AuthController(AppDbContext context)
@@ -13,68 +16,62 @@ namespace web_backend.Controllers.Apiler
             _context = context;
         }
 
-        [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Login(string email, string password)
-        {
-            var user = await _context.Users
-                .FirstOrDefaultAsync(u => u.Email == email && u.PasswordHash == password);
-
-            if (user != null) return RedirectToAction("Index", "Dashboard");
-
-            ViewBag.Error = "E-posta veya şifre hatalı.";
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Register()
-        {
-            return View();
-        }
-        public IActionResult Logout()
-        {
-            return RedirectToAction("Login", "Auth");
-        }
-
         // MOBİL İÇİN GİRİŞ API'Sİ
-        [HttpPost("api/auth/login")]
-        public async Task<IActionResult> LoginApi([FromBody] LoginViewModel model)
+        // Erişim Adresi: POST /api/Auth/login
+        [HttpPost("login")]
+        public async Task<IActionResult> LoginApi([FromBody] LoginViewModel loginDto)
         {
+            if (loginDto == null || string.IsNullOrEmpty(loginDto.Email))
+                return BadRequest(new { success = false, message = "E-posta veya şifre boş olamaz." });
+
+            // Şimdilik düz metin kontrolü (Demo aşaması için)
             var user = await _context.Users
-                .FirstOrDefaultAsync(u => u.Email == model.Email && u.PasswordHash == model.Password);
+                .FirstOrDefaultAsync(u => u.Email == loginDto.Email && u.PasswordHash == loginDto.Password);
 
             if (user != null)
             {
-                // Mobil uygulamaya kullanıcı ID'sini ve başarısını dönüyoruz
-                return Ok(new { success = true, userId = user.UserId, firstName = user.FirstName });
+                // Mobil tarafın beklediği "Paket" (JSON)
+                return Ok(new
+                {
+                    success = true,
+                    userId = user.UserId,
+                    firstName = user.FirstName,
+                    role = user.Role,
+                    message = "Giriş başarılı!"
+                });
             }
-            return BadRequest(new { success = false, message = "E-posta veya şifre hatalı." });
+
+            return Unauthorized(new { success = false, message = "E-posta veya şifre hatalı." });
         }
 
         // MOBİL İÇİN KAYIT API'Sİ
-        [HttpPost("api/auth/register")]
+        // Erişim Adresi: POST /api/Auth/register
+        [HttpPost("register")]
         public async Task<IActionResult> RegisterApi([FromBody] RegisterViewModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
+                return BadRequest(new { success = false, errors = "Geçersiz veri girişi." });
+
+            // Email kullanımda mı kontrolü
+            var exists = await _context.Users.AnyAsync(u => u.Email == model.Email);
+            if (exists) return BadRequest(new { success = false, message = "Bu e-posta adresi zaten kayıtlı." });
+
+            var user = new User
             {
-                var user = new User
-                {
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    Email = model.Email,
-                    PasswordHash = model.Password, // Şimdilik düz metin
-                    Role = "Student"
-                };
-                _context.Users.Add(user);
-                await _context.SaveChangesAsync();
-                return Ok(new { success = true, message = "Kayıt başarılı!" });
-            }
-            return BadRequest(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors) });
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Email = model.Email,
+                PasswordHash = model.Password, // Demo sonrası hashlenmeli
+                Role = "Student",
+                CreatedAt = DateTime.Now,
+                TrustScore = 100,
+                TotalPoints = 0
+            };
+
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { success = true, message = "Kayıt başarılı!", userId = user.UserId });
         }
     }
 }

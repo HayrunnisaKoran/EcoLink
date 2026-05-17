@@ -28,6 +28,8 @@ namespace web_backend.Services
 
         public async Task AddTransactionAsync(int userId, int points, string type, string reason, int? wasteRecordId = null)
         {
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null) return;
             // 1. İşlemi kaydet
             var transaction = new PointsTransaction
             {
@@ -42,7 +44,7 @@ namespace web_backend.Services
             _context.PointsTransactions.Add(transaction);
 
             // 2. Kullanıcının toplam puanını merkezi olarak güncelle
-            var user = await _context.Users.FindAsync(userId);
+            
             if (user != null)
             {
                 user.TotalPoints += points; 

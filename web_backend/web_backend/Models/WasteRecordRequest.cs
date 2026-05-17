@@ -9,6 +9,6 @@ namespace web_backend.Models
         public int WasteTypeId { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
-        public IFormFile PhotoUrl { get; set; }
+        public string PhotoBase64 { get; set; }
     }
 }

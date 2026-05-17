@@ -55,8 +55,17 @@ namespace web_backend
                 .HasOne(wr => wr.WasteBin)
                 .WithMany()
                 .HasForeignKey(wr => wr.WasteBinId)
-                .OnDelete(DeleteBehavior.Restrict); 
-         }
+                .OnDelete(DeleteBehavior.Restrict);
+
+
+            modelBuilder.Entity<WasteRecord>(entity =>
+            {
+                entity.Property(e => e.Latitude).HasColumnType("decimal(10, 7)");
+                entity.Property(e => e.Longitude).HasColumnType("decimal(10, 7)");
+                entity.Property(e => e.Amount).HasColumnType("decimal(10, 2)");
+            });
+        }
+
     }
 }
 

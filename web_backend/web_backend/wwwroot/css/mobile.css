@@ -7,400 +7,180 @@
     --muted: #718176;
     --border: #dfe8e1;
     --white: #ffffff;
-    --shadow: 0 18px 45px rgba(21, 66, 34, 0.10);
-    --radius: 26px;
+    --bg-app: #E3E7DD;
+    --shadow: 0 20px 40px rgba(21, 66, 34, 0.12);
+    --radius: 30px;
+    --nav-selected: #2D5A27;
 }
 
-* {
-    box-sizing: border-box;
-}
-
-html,
-body {
+html, body {
     margin: 0;
-    min-height: 100%;
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: #eef7ef;
+    padding: 0;
+    background-color: var(--bg-app);
+    font-family: 'Segoe UI', system-ui, sans-serif;
     color: var(--text);
+    overflow-x: hidden;
 }
 
-body {
-    display: flex;
-    justify-content: center;
+.landing-wrapper {
+    background: linear-gradient(180deg, var(--bg-app) 0%, #ffffff 100%);
+    padding-bottom: 60px;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
+.badge-tech {
+    display: inline-block; /* Sadece metin kadar yer kaplaması için */
+    background-color: #2D5A27 !important; /* İstediğin o güzel koyu yeşil */
+    color: #ffffff !important; /* Yazı rengi beyaz (okunabilirlik için) */
+    padding: 8px 20px; /* Kutunun içindeki boşluk (yukarı-aşağı, sağ-sol) */
+    border-radius: 50px; /* Köşeleri tam yuvarlak yapar (Modern "pill" tasarımı) */
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase; /* Tüm harfleri büyük yapar (Vurgu katar) */
+    letter-spacing: 1px; /* Harfler arası hafif boşluk daha profesyonel durur */
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(45, 90, 39, 0.2); /* Hafif bir yeşil gölge derinlik katar */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Çok ince bir çerçeve şıklık katar */
 }
 
-.mobile-shell {
-    width: 100%;
-    max-width: 430px;
-    min-height: 100vh;
-    background: radial-gradient(circle at top right, rgba(47, 143, 70, 0.22), transparent 34%), linear-gradient(180deg, #fbfdfb 0%, #f0f8f1 100%);
-    padding: 18px;
+/* iPhone Mockup */
+.iphone-mockup {
+    width: 290px;
+    height: 600px;
+    background: #000;
+    border: 12px solid #1a1a1a;
+    border-radius: 48px;
+    margin: 0 auto;
     position: relative;
-}
-
-.mobile-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 18px;
-}
-
-.brand-mini {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo-circle {
-    width: 44px;
-    height: 44px;
-    border-radius: 16px;
-    display: grid;
-    place-items: center;
-    background: linear-gradient(135deg, var(--green), var(--green-dark));
-    color: white;
-    font-size: 24px;
-    box-shadow: var(--shadow);
-}
-
-.brand-mini h1 {
-    margin: 0;
-    font-size: 22px;
-    letter-spacing: -0.5px;
-}
-
-.brand-mini p {
-    margin: 1px 0 0;
-    color: var(--green);
-    font-size: 12px;
-    font-weight: 800;
-}
-
-.profile-dot {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: white;
-    border: 1px solid var(--border);
-    font-weight: 900;
-    color: var(--green-dark);
-}
-
-.hero-mobile {
-    border-radius: 32px;
-    padding: 24px;
-    background: linear-gradient(135deg, var(--green), var(--green-dark));
-    color: white;
-    box-shadow: var(--shadow);
-    position: relative;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.3);
+    z-index: 5;
     overflow: hidden;
 }
 
-    .hero-mobile::after {
-        content: "🌿";
-        position: absolute;
-        right: -8px;
-        bottom: -20px;
-        font-size: 110px;
-        opacity: 0.18;
-    }
-
-    .hero-mobile p {
-        margin: 0;
-        opacity: 0.9;
-        font-weight: 700;
-    }
-
-    .hero-mobile h2 {
-        margin: 8px 0 0;
-        font-size: 34px;
-        letter-spacing: -1px;
-    }
-
-.point-row {
-    display: flex;
-    gap: 12px;
-    margin-top: 16px;
+.iphone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 30px;
+    background: #1a1a1a;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 1000;
 }
 
-.point-chip {
-    flex: 1;
-    border-radius: 20px;
-    padding: 14px;
-    background: rgba(255, 255, 255, 0.16);
-    backdrop-filter: blur(8px);
+.screen {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 36px;
+    overflow: hidden;
+    position: relative;
 }
 
-    .point-chip span {
-        display: block;
-        font-size: 12px;
-        opacity: 0.9;
-    }
-
-    .point-chip strong {
-        display: block;
-        font-size: 20px;
-        margin-top: 4px;
-    }
-
-.section-title {
-    margin: 22px 0 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Slider ve Butonlar */
+#phoneSlider, .carousel-inner, .carousel-item {
+    height: 100% !important;
 }
 
-    .section-title h3 {
-        margin: 0;
-        font-size: 20px;
+.app-screenshot {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* OKLARIN GÖRÜNÜR OLMASI İÇİN */
+.custom-control {
+    width: 15% !important;
+    z-index: 1001 !important;
+}
+
+.custom-nav-icon {
+    background-color: rgba(31, 111, 58, 0.8) !important; /* EcoLink Yeşili */
+    border-radius: 50%;
+    padding: 15px;
+    background-size: 50% 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Noktalar (Indicators) */
+.custom-indicators {
+    bottom: 20px !important;
+    z-index: 1002 !important;
+}
+
+    .custom-indicators button {
+        width: 10px !important;
+        height: 10px !important;
+        background-color: var(--green-dark) !important;
+        border: 2px solid white !important;
+        border-radius: 50% !important;
+        opacity: 0.5;
     }
 
-    .section-title a {
-        color: var(--green);
-        font-weight: 900;
-        font-size: 13px;
-    }
+        .custom-indicators button.active {
+            opacity: 1;
+            transform: scale(1.2);
+        }
 
-.mobile-card {
-    background: rgba(255, 255, 255, 0.96);
-    border: 1px solid var(--border);
+/* Glassmorphism */
+.glass-card {
+    background-color: #2D5A27 !important; /* Senin istediğin o özel yeşil */
     border-radius: var(--radius);
-    padding: 18px;
-    box-shadow: var(--shadow);
+    padding: 30px;
+    margin-bottom: 20px; /* Kartlar arası boşluk */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Hafif şeffaf bir çerçeve şıklık katar */
+    transition: all 0.4s ease;
+    text-align: left; /* Görseldeki gibi sola hizalı */
 }
 
-.quick-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-}
-
-.quick-action {
-    min-height: 116px;
-    border-radius: 24px;
-    padding: 16px;
-    background: white;
-    border: 1px solid var(--border);
-    box-shadow: 0 12px 28px rgba(21, 66, 34, 0.06);
-}
-
-    .quick-action .icon {
-        width: 46px;
-        height: 46px;
-        border-radius: 17px;
-        display: grid;
-        place-items: center;
-        background: var(--green-soft);
-        color: var(--green-dark);
-        font-size: 24px;
+    /* Kartın içindeki metinlerin rengini beyaz yapıyoruz */
+    .glass-card h3 {
+        color: #ffffff !important;
+        font-weight: 700;
         margin-bottom: 12px;
     }
 
-    .quick-action h4 {
-        margin: 0;
-        font-size: 15px;
+    .glass-card p {
+        color: rgba(255, 255, 255, 0.9) !important; /* Hafif yumuşak beyaz */
+        line-height: 1.6;
+        font-size: 14px;
     }
 
-    .quick-action p {
-        margin: 5px 0 0;
-        color: var(--muted);
-        font-size: 12px;
-        font-weight: 700;
+/* Kartın üzerindeki ikon/emoji için stil */
+.card-icon {
+    font-size: 24px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* Hover efekti: Fareyle üzerine gelince biraz parlasın */
+.glass-card:hover {
+    transform: translateY(-50px);
+    background-color: #366d2f !important; /* Biraz daha açık bir yeşil tonu */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* İndirme Bölümüne Özel Açık Yeşil Kart */
+.download-section .glass-card {
+    background-color: #88C44D !important; /* Dikkat çekici açık yeşil */
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 15px 30px rgba(136, 196, 77, 0.3);
+}
+
+/* İndirme alanındaki metinleri siyah/koyu yaparak okunabilirliği koruyalım */
+.download-section h2,
+.download-section p {
+    color: #17231a !important;
+}
+
+.download-section .btn-download {
+    background: #2D5A27; /* Buton koyu kalsın ki zıtlık (kontrast) oluşsun */
+    border: none;
+}
+
+    .download-section .btn-download:hover {
+        background: #1f3f1b;
+        transform: translateY(-3px);
     }
-
-.activity-list {
-    display: grid;
-    gap: 10px;
-}
-
-.activity-item {
-    display: grid;
-    grid-template-columns: 46px 1fr auto;
-    gap: 12px;
-    align-items: center;
-    padding: 12px;
-    border-radius: 20px;
-    background: white;
-    border: 1px solid var(--border);
-}
-
-.activity-icon {
-    width: 46px;
-    height: 46px;
-    border-radius: 16px;
-    display: grid;
-    place-items: center;
-    background: var(--green-soft);
-    font-size: 22px;
-}
-
-.activity-item h4 {
-    margin: 0;
-    font-size: 14px;
-}
-
-.activity-item p {
-    margin: 4px 0 0;
-    font-size: 12px;
-    color: var(--muted);
-    font-weight: 700;
-}
-
-.plus-point {
-    color: var(--green);
-    font-weight: 900;
-}
-
-.bottom-nav {
-    position: sticky;
-    bottom: 14px;
-    margin-top: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-    padding: 10px;
-    border-radius: 28px;
-    background: rgba(255, 255, 255, 0.94);
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(16px);
-}
-
-    .bottom-nav a {
-        display: grid;
-        place-items: center;
-        gap: 3px;
-        padding: 8px 4px;
-        border-radius: 18px;
-        font-size: 11px;
-        font-weight: 800;
-        color: var(--muted);
-    }
-
-        .bottom-nav a.active {
-            background: var(--green-soft);
-            color: var(--green-dark);
-        }
-
-    .bottom-nav span {
-        font-size: 20px;
-    }
-
-.scan-card {
-    text-align: center;
-}
-
-.qr-frame {
-    width: 210px;
-    height: 210px;
-    margin: 10px auto 18px;
-    border-radius: 30px;
-    border: 2px dashed rgba(47, 143, 70, 0.35);
-    display: grid;
-    place-items: center;
-    background: var(--green-light);
-    font-size: 90px;
-    color: var(--green-dark);
-}
-
-.bin-code {
-    display: inline-flex;
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: var(--green-soft);
-    color: var(--green-dark);
-    font-weight: 900;
-    margin-bottom: 12px;
-}
-
-.mobile-form {
-    display: grid;
-    gap: 10px;
-    text-align: left;
-    margin-top: 16px;
-}
-
-    .mobile-form label {
-        font-weight: 900;
-        color: var(--green-dark);
-        font-size: 13px;
-    }
-
-.mobile-input {
-    width: 100%;
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 14px;
-    font-weight: 700;
-    background: white;
-    outline: none;
-}
-
-.mobile-btn {
-    border: 0;
-    border-radius: 20px;
-    padding: 15px 18px;
-    font-weight: 900;
-    cursor: pointer;
-    background: linear-gradient(135deg, var(--green), var(--green-dark));
-    color: white;
-    font-size: 15px;
-    box-shadow: var(--shadow);
-}
-
-.outline-btn {
-    display: inline-flex;
-    justify-content: center;
-    border-radius: 20px;
-    padding: 14px 18px;
-    font-weight: 900;
-    background: white;
-    border: 1px solid var(--green);
-    color: var(--green-dark);
-}
-
-.success-big {
-    min-height: 74vh;
-    display: grid;
-    place-items: center;
-    text-align: center;
-}
-
-.success-check {
-    width: 122px;
-    height: 122px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: linear-gradient(135deg, var(--green), var(--green-dark));
-    color: white;
-    font-size: 76px;
-    margin: 0 auto 18px;
-    box-shadow: var(--shadow);
-}
-
-.success-big h1 {
-    margin: 0;
-    font-size: 32px;
-}
-
-.success-big p {
-    color: var(--muted);
-    font-weight: 700;
-}
-
-.reward-line {
-    margin: 18px 0;
-    padding: 16px;
-    border-radius: 22px;
-    background: var(--green-soft);
-    color: var(--green-dark);
-    font-weight: 900;
-}
