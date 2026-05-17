@@ -1,3 +1,169 @@
 <resources>
     <string name="app_name">EcoLink</string>
+    <string name="welcome_user">Merhaba, %1$s! 🌱</string>
+    <string name="dashboard_subtitle">Doğaya katkın için harika iş çıkarıyorsun!</string>
+    <string name="total_points_label">Toplam Puanın</string>
+    <string name="points_value">1.250</string>
+    <string name="monthly_bonus">↗ Bu ay +250 puan</string>
+    <string name="waste_amount_val">250 kg</string>
+    <string name="waste_amount_label">Atık Miktarı</string>
+    <string name="waste_count_val">32 adet</string>
+    <string name="waste_count_label">Atık Kaydı</string>
+    <string name="level_label">Seviye</string>
+    <string name="level_name">Yeşil Başlangıç</string>
+    <string name="level_3">Seviye 3</string>
+    <string name="levels_button">Seviyeler ></string>
+    <string name="xp_progress">250 / 400 XP</string>
+    <string name="next_level_info">Sonraki seviye için 150 XP kaldı. Harika gidiyorsun!</string>
+    <string name="recent_transactions">Son İşlemler</string>
+    <string name="view_all">Tümünü Gör ></string>
+    <string name="cat_plastic">Plastik</string>
+    <string name="cat_glass">Cam</string>
+    <string name="date_p1">12 Mayıs 2026 • 14:32</string>
+    <string name="date_p2">12 Mayıs 2026 • 11:05</string>
+    <string name="pts_25">+25 puan</string>
+    <string name="pts_20">+20 puan</string>
+    <string name="acc_notification">Bildirimler</string>
+
+    <!-- Login & Register -->
+    <string name="email_hint">@ogr.cbu.edu.tr e-posta adresiniz</string>
+    <string name="password_hint">Şifreniz</string>
+    <string name="login_welcome">Hoş Geldiniz!</string>
+    <string name="login_subtitle">Hesabınıza giriş yaparak doğaya katkı sağlayın.</string>
+    <string name="btn_login">Giriş Yap</string>
+    <string name="btn_uni_login">Üniversite Hesabımla Giriş Yap</string>
+    <string name="register_prompt">Hesabınız yok mu? Kayıt Ol</string>
+    <string name="register_title">Yeni Hesap Oluştur</string>
+    <string name="register_subtitle">Doğaya katkı sağlamak için hemen katılın.</string>
+    <string name="full_name_hint">Ad Soyad</string>
+    <string name="btn_register_submit">Kayıt Ol ve Başla</string>
+    <string name="back_to_login">Zaten hesabınız var mı? Giriş Yap</string>
+
+    <!-- Fotoğraf ve İzinler -->
+    <string name="title_take_photo">Atık Fotoğrafı Çek</string>
+    <string name="inst_photo_top">Atığını net bir şekilde gösteren fotoğrafını çek.</string>
+    <string name="perm_granted_title">Konum erişim izni verildi</string>
+    <string name="perm_granted_sub">Erişim onaylandı</string>
+    <string name="loc_box_info">Mühendislik Fakültesi - Plastik Kutusu (KUTU-1023)</string>
+    <string name="loc_title_label">Konum Bilgisi</string>
+    <string name="zoom_1x">1x</string>
+    <string name="status_photo_ok">Fotoğraf net görünüyor.</string>
+    <string name="status_photo_sub">Onaylamak için fotoğrafı çekin.</string>
+
+    <!-- Profil ve Menü -->
+    <string name="label_impact">Doğa Etkisi</string>
+    <string name="label_daily_tasks">Günlük Görevler</string>
+    <string name="task_plastic_goal">1 adet plastik atık kaydı yap</string>
+    <string name="menu_edit_profile">Profili Düzenle</string>
+    <string name="menu_notifications">Bildirim Ayarları</string>
+    <string name="menu_privacy">Gizlilik ve Güvenlik</string>
+    <string name="menu_language">Dil Ayarları</string>
+    <string name="menu_support">Destek</string>
+    <string name="menu_logout">Çıkış Yap</string>
+    <string name="label_account_settings">Hesap Ayarları</string>
+    <string name="label_saving">Tasarruf</string>
+    <string name="label_contribution">Katkı</string>
+    <string name="profile_records_count">%1$d Kayıt</string>
+    <string name="profile_compost_count">%1$d Kompost</string>
+    <string name="session_error">Oturum hatası, lütfen tekrar giriş yapın.</string>
+    <string name="redirecting_edit_profile">Düzenleme ekranına yönlendiriliyorsunuz...</string>
+    <string name="notifications_coming_soon">Bildirim ayarları çok yakında aktif olacak.</string>
+    <string name="profile_fetch_error">Veri çekilemedi. Hata Kodu: %1$d</string>
+    <string name="server_connection_error">Sunucuya bağlanılamadı: %1$s</string>
+    <string name="profile_update_failed">Veriler güncellenemedi, bağlantınızı kontrol edin.</string>
+    <string name="level_status_format">%1$s • Seviye %2$d</string>
+
+    <!-- QR ve Harita -->
+    <string name="title_qr_scan">QR Kod Tara</string>
+    <string name="loc_faculty">Mühendislik Fakültesi</string>
+    <string name="loc_uni">Manisa Celal Bayar Üniversitesi</string>
+    <string name="btn_view_map">Haritada Gör</string>
+    <string name="dist_label">Kutuya Uzaklığınız</string>
+    <string name="dist_val">2.4 m</string>
+    <string name="verify_label">Doğrulama Durumu</string>
+    <string name="verify_val">Doğrulandı</string>
+    <string name="update_label">Son Güncelleme</string>
+    <string name="update_val">09:41:23</string>
+    <string name="qr_inst_title">Atık kutusundaki QR kodu okutun</string>
+    <string name="qr_inst_sub">İşleminiz otomatik olarak doğrulanacaktır.</string>
+    <string name="qr_cant_scan">Kodu okutamıyor musunuz?</string>
+    <string name="qr_manual_entry">Kodu Manuel Gir</string>
+    <string name="mot_qr_title">Doğaya katkın sayılıyor!</string>
+    <string name="mot_qr_sub">Her atığın geleceğe daha temiz bir kampüs bırakmamıza yardımcı oluyor.</string>
+
+    <!-- İstatistik ve Sıralama -->
+    <string name="title_leaderboard">Sıralama</string>
+    <string name="subtitle_leaderboard">En çevreci kullanıcılar</string>
+    <string name="tab_students">Öğrenciler</string>
+    <string name="tab_faculties">Fakülteler</string>
+    <string name="tab_departments">Bölümler</string>
+    <string name="label_general_rank">Ekolojik Yolculuğun</string>
+    <string name="val_general_rank">#124</string>
+    <string name="val_general_points">%1$s Puan</string>
+    <string name="val_monthly_gain">+250 Puan</string>
+    <string name="mot_rank_title">Harika Gidiyorsun!</string>
+    <string name="mot_rank_sub">İlk 100e girmene sadece 50 puan kaldı.</string>
+    <string name="footer_update_time">Son güncelleme: 5 dakika önce</string>
+
+    <!-- Doğrulama Sonucu -->
+    <string name="title_result">İşlem Sonucu</string>
+    <string name="result_success_title">Harika İş!</string>
+    <string name="result_success_sub">Atığın başarıyla geri dönüşüme kazandırıldı.</string>
+    <string name="section_waste_info">Atık Bilgileri</string>
+    <string name="info_type_label">Tür</string>
+    <string name="info_bin_label">Kutu ID</string>
+    <string name="info_date_label">Tarih</string>
+    <string name="section_points">Kazanılan Puanlar</string>
+    <string name="mot_weekly_streak">Haftalık seri bonusu kazandın!</string>
+    <string name="section_details">Doğrulama Detayları</string>
+    <string name="detail_loc">Konum Doğrulama</string>
+    <string name="detail_loc_sub">Kutu konumuna göre doğrulandı</string>
+    <string name="badge_verified">Doğrulandı</string>
+    <string name="detail_cap">Kapasite Kontrolü</string>
+    <string name="detail_cap_sub">Kutu doluluk oranı güncellendi</string>
+    <string name="detail_ai">AI Analizi</string>
+    <string name="detail_ai_sub">Görsel analiz başarılı</string>
+    <string name="detail_sec">Güvenlik</string>
+    <string name="detail_sec_sub">Uçtan uca şifreli işlem</string>
+    <string name="badge_secure">Güvenli</string>
+    <string name="btn_done">Tamamla</string>
+    <string name="btn_share">Paylaş</string>
+
+    <!-- Atık Türleri -->
+    <string name="title_select_waste">Atık Türü Seçin</string>
+    <string name="loc_current_bin">Mevcut Kutu: EcoBin #12</string>
+    <string name="inst_select_title">Atığınızı Tanımlayın</string>
+    <string name="inst_select_sub">Geri dönüştürmek istediğiniz atık türünü seçin</string>
+    <string name="cat_paper">Kağıt</string>
+    <string name="cat_paper_desc">Gazete, dergi, karton</string>
+    <string name="cat_plastic_desc">Pet şişe, paketler</string>
+    <string name="cat_glass_desc">Cam şişe, kavanoz</string>
+    <string name="cat_metal">Metal</string>
+    <string name="cat_metal_desc">Kutu içecek, konserve</string>
+    <string name="cat_organic">Organik</string>
+    <string name="cat_organic_desc">Meyve, sebze atıkları</string>
+    <string name="mot_remember">Unutmayın!</string>
+    <string name="mot_remember_sub">Doğru ayrıştırma daha temiz bir gelecek demektir.</string>
+    <string name="btn_verify_camera">Kamerayla Doğrula</string>
+    <string name="bin_active_format">EcoBin #%1$d Aktif</string>
+    <string name="bin_not_found">Kutu Bulunamadı</string>
+    <string name="bin_not_registered_format">ID: %1$d sistemde kayıtlı değil.</string>
+    <string name="connection_error">Bağlantı Hatası</string>
+    <string name="waiting_for_data">Kutu verileri yükleniyor, lütfen bekleyin...</string>
+
+    <!-- Dashboard Main -->
+    <string name="dashboard_greeting">Merhaba! 🌱</string>
+    <string name="total_waste_label">Kurtarılan Ağırlık</string>
+    <string name="special_badges_title">Özel Başarı Rozetleri</string>
+    <string name="compost_tasks_title">Günün Kompost Görevleri</string>
+    <string name="task_organik">Bugün 1 adet organik atık at (+50 Puan)</string>
+    <string name="task_carbon">Kuru yaprak (Karbon) desteği sağla (+80 Puan)</string>
+    <string name="campus_map_title">Kampüs Haritası</string>
+    <string name="all_waste_points_desc">Tüm atık ve kompost noktaları</string>
+    <string name="btn_open_map">Haritayı Göster</string>
+    <string name="level_loading">Seviye Yükleniyor...</string>
+    <string name="level_prefix">Seviye</string>
+    <string name="label_points">Puan</string>
+    <string name="label_times">Kez</string>
+    <string name="label_kg">%1$s kg</string>
 </resources>

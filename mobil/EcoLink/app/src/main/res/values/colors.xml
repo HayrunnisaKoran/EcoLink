@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- EcoLink Ana Renkleri -->
+    <color name="eco_green">#387C44</color>
+    <color name="eco_green_light">#E8F5E9</color>
+    <color name="text_dark">#2E3E2F</color>
+    <color name="text_gray">#757575</color>
 </resources>
