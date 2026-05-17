@@ -19,20 +19,22 @@ namespace web_backend.Controllers.Apiler
 
         // GET: api/wastebin
         // Tüm atık kutularının koordinatlarını liste olarak döndürür
-        [HttpGet]
+        [HttpGet("all")]
         public async Task<IActionResult> GetAllBins()
         {
             // Veritabanından kutuları çekip, sadece mobilin ihtiyacı olan verileri JSON'a dönüştürüyoruz
             var bins = await _context.WasteBins
-                .Select(b => new
-                {
-                    Id = b.WasteBinId,                     // Senin modelinde 'Id' değil, 'WasteBinId'
-                    Type = b.WasteType != null ? b.WasteType.TypeName : "Bilinmiyor", // İlişkili tablodan atık tipinin adını çekiyoruz
-                    Latitude = b.Latitude,                 // Enlem
-                    Longitude = b.Longitude,               // Boylam
-                    FillLevel = b.FillLevelPercent,        // 'Status' yerine senin belirlediğin 'FillLevelPercent' (Doluluk)
-                    Location = b.LocationName              // Mobilde kutunun nerede olduğunu göstermek için harika bir veri!
-                })
+             .Include(b => b.WasteType) // Atık tipini de beraberinde getiriyoruz
+              .Where(b => b.IsActive)    // Sadece aktif kutuları gönderelim
+              .Select(b => new
+        {
+            Id = b.WasteBinId,
+            Type = b.WasteType != null ? b.WasteType.TypeName : "Bilinmiyor",
+            Latitude = b.Latitude,
+            Longitude = b.Longitude,
+            FillLevel = b.FillLevelPercent,
+            Location = b.LocationName            // Mobilde kutunun nerede olduğunu göstermek için harika bir veri!
+        })
                 .ToListAsync();
 
             // Eğer sistemde hiç kutu yoksa boş liste veya hata dönmesin diye kontrol

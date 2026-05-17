@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/Shared/_MobileLayout.cshtml";
+    ViewData["Title"] = "EcoLink Yükleniyor";
+}
+
+<div class="container text-center py-5">
+    <div class="glass-card" style="background: white !important;">
+        <h2 class="text-success">📥 İndirme Başlıyor...</h2>
+        <p class="mt-3">EcoLink APK dosyası otomatik olarak indirilmeye başlanacaktır.</p>
+
+        <div class="alert alert-warning text-start mt-4" style="font-size: 0.9rem;">
+            <strong>⚠️ Güvenlik Notu:</strong> <br>
+            Uygulamamız henüz Google Play'de olmadığı için Android cihazınızda
+            <em>"Bilinmeyen Kaynaklardan Uygulama Yükleme"</em> iznini açmanız gerekebilir.
+        </div>
+
+        <a href="/downloads/app-release.apk" class="btn-download mt-3" download>
+            Eğer indirme başlamadıysa buraya tıkla
+        </a>
+    </div>
+</div>
+
+<script>
+    // Sayfa açıldıktan 2 saniye sonra indirmeyi otomatik başlat
+    setTimeout(function () {
+        window.location.href = "/downloads/app-release.apk";
+    }, 2000);
+</script>

@@ -15,35 +15,35 @@ namespace web_backend.Services
             _environment = environment;
         }
 
+        public async Task<string> SaveFileFromBytesAsync(byte[] bytes)
+        {
+            if (bytes == null || bytes.Length == 0) return null;
+
+            // 1. GÜVENLİK: Magic Numbers kontrolü (Byte dizisi üzerinden)
+            string extension = "";
+            if (bytes[0] == 0xFF && bytes[1] == 0xD8 && bytes[2] == 0xFF) extension = ".jpg";
+            else if (bytes[0] == 0x89 && bytes[1] == 0x50 && bytes[2] == 0x4E && bytes[3] == 0x47) extension = ".png";
+            else throw new Exception("Güvenlik İhlali: Geçersiz dosya formatı!");
+
+            // 2. Klasör Ayarı
+            string uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "waste-photos");
+            if (!Directory.Exists(uploadsFolder)) Directory.CreateDirectory(uploadsFolder);
+
+            // 3. Benzersiz İsim
+            string uniqueFileName = Guid.NewGuid().ToString() + extension;
+            string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+            // 4. Kaydetme
+            await File.WriteAllBytesAsync(filePath, bytes);
+
+            return "/uploads/waste-photos/" + uniqueFileName;
+        }
         public async Task<string> SaveFileAsync(IFormFile file)
         {
             if (file == null || file.Length == 0) return null;
 
-            // 1. SİBER GÜVENLİK KONTROLÜ: Dosya içeriği gerçekten resim mi?
-            if (!await IsValidImageSignatureAsync(file))
-            {
-                throw new Exception("Güvenlik İhlali: Sadece resim dosyaları yüklenebilir!");
-            }
-
-            // 2. Kayıt klasörünü belirle
-            string uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "waste-photos");
-
-            if (!Directory.Exists(uploadsFolder))
-                Directory.CreateDirectory(uploadsFolder);
-
-            // 3. Dosya uzantısını koruyarak benzersiz isim oluştur
-            string extension = Path.GetExtension(file.FileName); // .jpg veya .png alır
-            string uniqueFileName = Guid.NewGuid().ToString() + extension;
-            string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-            // 4. Dosyayı fiziksel olarak kaydet
-            using (var fileStream = new FileStream(filePath, FileMode.Create))
-            {
-                await file.CopyToAsync(fileStream);
-            }
-
-            // 5. Veritabanına kaydedilecek bağıl yolu dön
-            return "/uploads/waste-photos/" + uniqueFileName;
+            // Mevcut SaveFileAsync kodlarını buraya yapıştırabilirsin
+            return "dosya_yolu";
         }
 
         // Magic Numbers (Dosya İmzası) Kontrol Fonksiyonu

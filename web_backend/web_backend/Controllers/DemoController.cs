@@ -1,14 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using web_backend.Models;
 
 namespace web_backend.Controllers
 {
     public class DemoController : Controller
     {
-        // QR kodu okutan ziyaretçiler direkt bu sayfaya düşecek
-        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            // QR Kod buraya çarpar çarpmaz, kullanıcıyı hissettirmeden 
+            // MobileController'ın Index sayfasına fırlatıyoruz!
+            return RedirectToAction("Index", "Mobile");
         }
     }
 }

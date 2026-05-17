@@ -1,9 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using web_backend.Models;
 
 namespace web_backend.Controllers
 {
+    //BU CONTROLLERA DEMOCONTROLLERDAN YONLENDIRME VAR, SİLMEE
     public class MobileController : Controller
     {
+        private readonly AppDbContext _context;
+
+        // Veritabanı bağlantısını buraya da ekliyoruz
+        public MobileController(AppDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             ViewData["Title"] = "EcoLink Mobil";
@@ -50,9 +60,21 @@ namespace web_backend.Controllers
             return View();
         }
 
-        public IActionResult Profile()
+        public async Task<IActionResult> Profile(int id = 1) // Demo için varsayılan ID 1
         {
+            var user = await _context.Users
+                .Include(u => u.Faculty)
+                .FirstOrDefaultAsync(u => u.UserId == id);
+
+            if (user == null) return NotFound("Kullanıcı bulunamadı.");
+
             ViewData["Title"] = "Profil";
+            return View(user); // Sayfaya (View) kullanıcıyı gönderiyoruz
+        }
+
+        public IActionResult DownloadApp()
+        {
+            // Bu sayfa kullanıcıya talimatları gösterecek
             return View();
         }
     }

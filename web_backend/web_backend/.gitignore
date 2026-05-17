@@ -1,9 +1,10 @@
-﻿# Visual Studio ve .NET
+﻿# Visual Studio ve .NET klasörleri
 .vs/
 [Bb]in/
 [Oo]bj/
 *.user
 *.suo
+*.vshost.*
 
 appsettings.Development.json
 appsettings.json
@@ -15,3 +16,14 @@ wwwroot/images/
 # İşletim sistemi ve log artıkları
 .DS_Store
 *.log
+Thumbs.db
+
+# Yapay Zeka Modelleri (Büyük Dosyalar)
+*.onnx
+
+# Kullanıcı tarafından yüklenen dinamik dosyalar (Fotoğraflar, loglar vb.)
+wwwroot/uploads/
+wwwroot/images/
+wwwroot/files/
+
+
